@@ -2,13 +2,18 @@ using System;
 
 namespace Garage
 {
-    public class Tesla : Vehicle // Electric car
+    public class Tesla : Vehicle, IElectricVehicle // Electric car
     {
         public double BatteryKWh { get; set; }
+        int CurrentChargePercentage {get; set; } = 0;
 
+        public string GetCurrentChargePercentage()
+        {
+            return ($"Tesla battery is {CurrentChargePercentage}% charged");
+        }
         public void ChargeBattery()
         {
-            // method definition omitted
+            CurrentChargePercentage = 100;
         }
 
           public override void Drive()
